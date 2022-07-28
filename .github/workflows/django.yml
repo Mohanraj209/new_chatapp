@@ -28,7 +28,6 @@ jobs:
     - name: Run Tests
       run: |
         cd fundoo
-        pip install gunicorn
         apt-get install python-dev default-libmysqlclient-dev build-essential
         pip install mysqlclient
         python manage.py test
