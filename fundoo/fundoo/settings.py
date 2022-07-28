@@ -103,11 +103,11 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'chatdb',
-        'USER': '*',
-        'PASSWORD': '*',
-        'HOST': '*',
-        'PORT': '*',
+        'NAME': 'mydb',
+        'USER': 'sunil',
+        'PASSWORD': 'sunil',
+        'HOST': 'databasecompose',
+        'PORT': '3306',
     }
 }
 #sagar kadam
