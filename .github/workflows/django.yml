@@ -34,7 +34,7 @@ jobs:
         cd fundoo
         sudo apt-get install python-dev default-libmysqlclient-dev build-essential
         pip install mysqlclient
-        python manage.py collectstatic -y
+        python manage.py collectstatic 
         python manage.py makemigrations -y
         python manage.py migrate
     - name: Upload artifact for deployment jobs
