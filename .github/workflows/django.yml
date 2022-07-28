@@ -24,11 +24,11 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        virtualenv -p /usr/bin/python venv
-        source venv/bin/activate 
         pip install -r requirements.txt
     - name: Run Tests
       run: |
+        virtualenv -p /usr/bin/python venv
+        source venv/bin/activate
         cd fundoo
         pip install gunicorn
         apt-get install python-dev default-libmysqlclient-dev build-essential
