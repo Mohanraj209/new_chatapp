@@ -43,7 +43,7 @@ jobs:
     - name: Run Tests
       run: |
         cd fundoo
-        python -m pip3 install -U channels
+        python -m pip install -U channels
         python manage.py makemigrations 
         python manage.py migrate
         sudo systemctl daemon-reload
