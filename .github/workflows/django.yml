@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: docker-vm
+    runs-on: self-hosted
     strategy:
       max-parallel: 4
       matrix:
