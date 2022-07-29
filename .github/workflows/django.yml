@@ -42,7 +42,7 @@ jobs:
       run: |
         cd fundoo
         sudo apt-get install python-dev default-libmysqlclient-dev build-essential -y
-        pip3 install mysqlclient
+        pip install mysqlclient
         python manage.py makemigrations 
         python manage.py migrate
         sudo systemctl daemon-reload
