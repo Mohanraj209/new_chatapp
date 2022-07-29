@@ -43,8 +43,8 @@ jobs:
     - name: Run Tests
       run: |
         cd fundoo
-        python manage.py makemigrations 
-        python manage.py migrate
+        python3 manage.py makemigrations 
+        python3 manage.py migrate
         sudo systemctl daemon-reload
         sudo systemctl start gunicorn
     - name: Upload artifact for deployment jobs
