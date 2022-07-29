@@ -33,18 +33,16 @@ jobs:
         sudo apt-get update
         sudo apt-get install python3-pip python3-dev -y
         sudo apt-get upgrade -y
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Run Tests
-      run: |
         cd new_chatapp/
         virtualenv -p /usr/bin/python3 venv
         source venv/bin/activate
         pip3 install -r requirements.txt
         pip3 install gunicorn
+    - name: Run Tests
+      run: |
         cd fundoo
         sudo apt-get install python-dev default-libmysqlclient-dev build-essential
-        pip install mysqlclient
+        pip3 install mysqlclient
         python manage.py makemigrations 
         python manage.py migrate
         sudo systemctl daemon-reload
