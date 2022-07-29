@@ -43,8 +43,9 @@ jobs:
     - name: Run Tests
       run: |
         cd fundoo
-        python3 manage.py makemigrations 
-        python3 manage.py migrate
+        python -m pip3 install -U channels
+        python manage.py makemigrations 
+        python manage.py migrate
         sudo systemctl daemon-reload
         sudo systemctl start gunicorn
     - name: Upload artifact for deployment jobs
