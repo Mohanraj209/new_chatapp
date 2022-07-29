@@ -41,7 +41,7 @@ jobs:
     - name: Run Tests
       run: |
         cd fundoo
-        sudo apt-get install mysql-client
+        sudo apt-get install mysql-client -y
         sudo apt-get install libmysqlclient-dev
         sudo apt-get install libssl-dev
         python manage.py makemigrations 
