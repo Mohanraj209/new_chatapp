@@ -38,12 +38,11 @@ jobs:
         source venv/bin/activate
         pip3 install -r requirements.txt
         pip3 install gunicorn
+        sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+        pip3 install mysqlclient
     - name: Run Tests
       run: |
         cd fundoo
-        sudo apt-get install mysql-client -y
-        sudo apt-get install libmysqlclient-dev
-        sudo apt-get install libssl-dev
         python manage.py makemigrations 
         python manage.py migrate
         sudo systemctl daemon-reload
