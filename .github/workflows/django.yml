@@ -39,7 +39,6 @@ jobs:
         pip install mysqlclient
         python manage.py makemigrations 
         python manage.py migrate
-        gunicorn --bind 0.0.0.0:8000 fundoo.wsgi:application
         sudo nano /etc/systemd/system/gunicorn.service  |
         [Unit]
              Description=gunicorn daemon
@@ -51,6 +50,8 @@ jobs:
              ExecStart=/home/ubuntu/new_chatapp/venv/bin/gunicorn --workers 3 --bind 0.0.0.0:8000 fundoo.wsgi:application
             [Install]
             WantedBy=multi-user.target
+        sudo systemctl daemon-reload
+        sudo systemctl start gunicorn
     - name: Upload artifact for deployment jobs
       uses: actions/upload-artifact@v2
       with:
