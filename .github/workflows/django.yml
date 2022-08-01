@@ -40,10 +40,10 @@ jobs:
         pip3 install gunicorn
         sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
         pip3 install mysqlclient
-    - name: Run Tests
-      run: |
         cd fundoo
         python3 -m pip install -U channels
+    - name: Run Tests
+      run: |
         python3 manage.py makemigrations 
         python3 manage.py migrate
         sudo systemctl daemon-reload
