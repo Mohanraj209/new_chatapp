@@ -44,6 +44,7 @@ jobs:
         python -m pip install -U channels
     - name: Run Tests
       run: |
+        cd /home/docker-vm/mohan/new_chatapp/fundoo
         python manage.py makemigrations 
         python manage.py migrate
         sudo systemctl daemon-reload
