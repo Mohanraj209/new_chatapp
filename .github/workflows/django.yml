@@ -29,9 +29,8 @@ jobs:
         sudo pip3 install virtualenv
     - name: Install Dependencies
       run: |
-        sudo apt-get update
-        sudo apt-get install python3-pip python3-dev -y
-        sudo apt-get upgrade -y
+        pwd
+        ls
         cd new_chatapp/
         virtualenv -p /usr/bin/python3 venv
         source venv/bin/activate
