@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
@@ -27,7 +27,6 @@ jobs:
         sudo apt-get install python3-pip python3-dev -y
         sudo apt-get upgrade -y
         sudo pip3 install virtualenv
-        git clone https://github.com/Mohanraj209/new_chatapp.git
     - name: Install Dependencies
       run: |
         sudo apt-get update
@@ -49,31 +48,4 @@ jobs:
         python manage.py migrate
         sudo systemctl daemon-reload
         sudo systemctl start gunicorn
-    - name: Upload artifact for deployment jobs
-      uses: actions/upload-artifact@v2
-      with:
-        name: python-app
-        path: |
-          . 
-          !venv/
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: python-app
-          path: .
-          
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
-        with:
-          app-name: 'chatapp1818'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1E75A5462D2B4DF284814F87F1F4E67A }}
+    
