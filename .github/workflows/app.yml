@@ -28,4 +28,6 @@ jobs:
     - name: Run Tests
       run: |
         cd fundoo
+        sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+        pip install mysqlclient
         python manage.py migrate
